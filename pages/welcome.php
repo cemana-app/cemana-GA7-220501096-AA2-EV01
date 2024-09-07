@@ -37,7 +37,7 @@ if (!isset($_SESSION['user_name'])) {    // Check if user is logged in
                     </div>
                 
                 <div class="card-body">
-                    <form action="././views/menu/menu_appointments.php">
+                    <form action="../pages/creativo/index.html">
                         <button type="submit" class="btn btn-success form-control mb-1">
                             <div class="">
                                 <img src="../assets/images/appo.png" alt="" alt="Employee" width="50px" height="50px">
@@ -53,7 +53,7 @@ if (!isset($_SESSION['user_name'])) {    // Check if user is logged in
                             Clientes
                         </button>
                     </form>
-                    <form action="././views/menu/menu_employees.php">
+                    <form action="../pages/menu_employees.php">
                         <button type="submit" class="btn btn-success form-control mb-1">
                             <div class="">
                                 <img src="../assets/images/employee.png" alt="Employee" width="50px" height="50px">

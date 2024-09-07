@@ -30,14 +30,14 @@
         <form action="search_client.php" method="post">
             <div class="mb-2">
                 <select name="searchType" class="form-control" required>
-                    <option>Clic Aquí para seleccionar una opción ... </option>
+                    <option>Seleccionar una opción ... </option>
                     <option value="id">Código</option>
                     <option value="name">Nombre</option>
                 </select>
                 <input type="text" name="searchValue" class="form-control" required placeholder=" Ingresar nombre o código a buscar...">
             </div>
 
-            <button type="submit" class="btn btn-success form-control">Buscar</button>
+            <button type="submit" class="btn btn-success form-control">Buscar cliente</button>
         </form>
 
 
@@ -49,7 +49,7 @@
         <?php if (empty($searchResults))
             echo '
                                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                                    ¡Cliente no encontrado !
+                                    Resultados
                                     <button 
                                         type="button" 
                                         class="btn-close" 
@@ -168,13 +168,11 @@
                 </table>
             <?php endforeach; ?>
             <div style="text-align: center; margin-top:5px;">
-                <a href="edit_client.php?clientID=<?php echo $client['clientID']; ?>" class="btn btn-warning form-control mb-1 mt-2 btn-sm">Modificar</a>
-                <a href="search_client.php?deleteID=<?php echo $client['clientID']; ?>" class="btn btn-danger form-control btn-sm" onclick="return confirm('Eliminar Cliente?');">Eliminar</a>
+                <a href="edit_client.php?clientID=<?php echo $client['clientID']; ?>" class="btn btn-warning form-control mb-1 mt-2 btn-sm">Modificar cliente</a>
+                <a href="search_client.php?deleteID=<?php echo $client['clientID']; ?>" class="btn btn-danger form-control btn-sm" onclick="return confirm('Eliminar Cliente?');">Eliminar cliente</a>
             </div>
 
 
         <?php endif; ?>
-
-
 
     </section>
