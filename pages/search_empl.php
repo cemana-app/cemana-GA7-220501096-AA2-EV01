@@ -70,9 +70,9 @@
         $searchValue = $_POST['searchValue'];
 
         if ($searchType == "id") {
-            $sql = "SELECT * FROM tbl_client_profile WHERE clientID = ?";
+            $sql = "SELECT * FROM tbl_associate_profile WHERE associateID = ?";
         } else {
-            $sql = "SELECT * FROM tbl_client_profile WHERE first_name LIKE ? OR last_name LIKE ?";
+            $sql = "SELECT * FROM tbl_associate_profile WHERE first_name LIKE ? OR last_name LIKE ?";
         }
 
         if ($stmt = mysqli_prepare($link, $sql)) {
@@ -89,7 +89,7 @@
                     $searchResults[] = $row;
                 }
             } else {
-                echo "<div class='alert alert-danger'>Error searching for client. Please try again later.</div>";
+                echo "<div class='alert alert-danger'>Error searching for empl. Please try again later.</div>";
             }
         } else {
             echo "<div class='alert alert-danger'>Database statement preparation failed.</div>";
@@ -98,11 +98,11 @@
     }
 
     if (isset($_GET['deleteID'])) {
-        $clientID = $_GET['deleteID'];
+        $employeeID = $_GET['deleteID'];
 
-        $sql = "DELETE FROM tbl_client_profile WHERE clientID = ?";
+        $sql = "DELETE FROM tbl_associate_profile WHERE associateID = ?";
         if ($stmt = mysqli_prepare($link, $sql)) {
-            mysqli_stmt_bind_param($stmt, "i", $clientID);
+            mysqli_stmt_bind_param($stmt, "i", $employeeID);
 
             if (mysqli_stmt_execute($stmt)) {
                 echo '
@@ -115,9 +115,9 @@
                     aria-label="Close">
                 </button>
                 </div>';
-                header("Refresh: 2; URL=../pages/menu_customers.php");
+                header("Refresh: 2; URL=../pages/menu_employees.php");
             } else {
-                echo "<div class='alert alert-danger'>Error deleting client. Please try again later.</div>";
+                echo "<div class='alert alert-danger'>Error deleting Employee. Please try again later.</div>";
             }
         } else {
             echo "<div class='alert alert-danger'>Database statement preparation failed.</div>";
@@ -129,47 +129,52 @@
 ?>
         <?php if (!empty($searchResults)) : ?>
 
-            <?php foreach ($searchResults as $client) : ?>
+            <?php foreach ($searchResults as $employee) : ?>
                 <table>
                     <tr>
                         <td><strong>ID:</strong></td>
-                        <td><?php echo htmlspecialchars($client['clientID']); ?></td>
+                        <td><?php echo htmlspecialchars($employee['associateID']); ?></td>
                     </tr>
 
                     <tr>
                         <td><strong>Nombre:</strong></td>
-                        <td><?php echo htmlspecialchars($client['first_name']); ?></td>
+                        <td><?php echo htmlspecialchars($employee['first_name']); ?></td>
                     </tr>
 
                     <tr>
                         <td><strong>Apellido:</strong></td>
-                        <td><?php echo htmlspecialchars($client['last_name']); ?></td>
+                        <td><?php echo htmlspecialchars($employee['last_name']); ?></td>
                     </tr>
 
                     <tr>
                         <td><strong>Dirección:</strong></td>
-                        <td><?php echo htmlspecialchars($client['address1']); ?></td>
+                        <td><?php echo $employee['address1']; ?></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Número de cabina:</strong></td>
+                        <td><?php echo $employee['cabine_number']; ?></td>
                     </tr>
 
                     <tr>
                         <td><strong>Número telefónico:</strong></td>
-                        <td><?php echo htmlspecialchars($client['mobile_phone']); ?></td>
+                        <td><?php echo $employee['cellular_number']; ?></td>
                     </tr>
 
                     <tr>
                         <td><strong>Email:</strong></td>
-                        <td><?php echo htmlspecialchars($client['email']); ?></td>
+                        <td><?php echo $employee['email']; ?></td>
                     </tr>
 
                     <tr>
-                        <td><strong>Condiciones de pago:</strong></td>
-                        <td><?php echo htmlspecialchars($client['payment_termID']); ?></td>
+                        <td><strong>Honorarios por hora:</strong></td>
+                        <td><?php echo $employee['hourly_rate']; ?></td>
                     </tr>
                 </table>
             <?php endforeach; ?>
             <div style="text-align: center; margin-top:5px;">
-                <a href="edit_client.php?clientID=<?php echo $client['clientID']; ?>" class="btn btn-warning form-control mb-1 mt-2 btn-sm">Modificar empleado</a>
-                <a href="search_client.php?deleteID=<?php echo $client['clientID']; ?>" class="btn btn-danger form-control btn-sm" onclick="return confirm('Eliminar empleado?');">Eliminar empleado</a>
+                <a href="edit_empl.php?emplID=<?php echo $employee['associateID']; ?>" class="btn btn-warning form-control mb-1 mt-2 btn-sm">Modificar empleado</a>
+                <a href="search_empl.php?deleteID=<?php echo $employee['associateID']; ?>" class="btn btn-danger form-control btn-sm" onclick="return confirm('Eliminar empleado?');">Eliminar empleado</a>
             </div>
 
 
