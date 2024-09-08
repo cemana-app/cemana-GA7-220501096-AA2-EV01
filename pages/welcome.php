@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_name'])) {    // Check if user is logged in
 
 <body>
 <?php include '../includes/nav.php';?> <!-- Include the navigation bar -->
-    <h4 class=" m-0 p-1 text-center bg-primary text-light">Menú principal de gestión</h4>
+    <h4 class=" m-0 p-1 text-center text-light" style="background-color: #21516f;">Menú principal de gestión</h4>
 
     <main>
         <section>

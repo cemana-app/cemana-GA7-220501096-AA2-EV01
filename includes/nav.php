@@ -51,11 +51,11 @@
     aria-labelledby="offcanvasScrollingLabel1"
     style="background-color: #3C5B6F; color:white;">
 
-    <div class="offcanvas-header" style="background-color: #0a1923; height:76px;">
+    <div class="offcanvas-header" style="background-color: #222F38; height:76px;">
         <h5 class="offcanvas-title" id="offcanvasScrollingLabel1">C E M A N A</h5>
         <button 
             type="button" 
-            class="btn btn-primary btn-close" 
+            class="btn btn-warning btn-close" 
             data-bs-dismiss="offcanvas" 
             aria-label="Close"
             style="color: white;">
@@ -64,8 +64,10 @@
     <div class="offcanvas-body">
     <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="../pages/welcome.php">Menú principale</a></li>
-            <li class="nav-item"><a class="nav-link" href="../pages/menu_customers.php">Clientes</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/menu_employees.php">Empleados</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/menu_customers.php">Clientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/creativo/index.html">Citas</a></li>
+            
 
             <li class="nav-item"><a class="nav-link" href="../pages/login.php">Login</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/logout.php">Logout</a></li>
